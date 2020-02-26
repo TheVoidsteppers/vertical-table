@@ -7,6 +7,12 @@
           :key="rowIndex"
           class="table__row"
         >
+          <!-- <td>
+            <slot name="header" v-bind:row="colItem">
+              {{ colItem }}
+            </slot>
+          </td> -->
+
           <td
             v-for="(colItem, colIndex) in data"
             :key="colIndex"
@@ -17,34 +23,6 @@
             </div>
           </td>
         </tr>
-
-        <!-- <tr
-          v-for="(rowItem, rowIndex) in headerNameList"
-          :key="rowIndex"
-          class="table__row"
-        > -->
-
-        <!-- 表格头 -->
-        <!-- <td
-            v-for="(colItem, colIndex) in data"
-            :key="colIndex"
-            class="table_headr"
-          >
-            <div v-if="rowIndex === 0" class="table_headr_cell">
-              <slot name="header" v-bind:row="colItem">
-                {{ colItem }}
-              </slot>
-            </div>
-          </td> -->
-        <!-- 表格头 end -->
-
-        <!-- 具体数值 -->
-        <!-- <td class="table_column">
-            <div class="cell" v-text="item">
-              <slot name="cell" v-bind:row="colItem">1111111 </slot>
-            </div>
-          </td> -->
-        <!-- </tr> -->
       </tbody>
     </table>
   </div>

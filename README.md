@@ -13,3 +13,5 @@ yarn run serve # 或  yarn run dev
 - [ ] 可传入表格头名称
 
 - [ ] 根据传入的表格头，有条件的显示数据
+
+- [ ] 显示的数据可通过 filters 转化
