@@ -1,29 +1,15 @@
 # vertical-table
 
-## Project setup
-```
+## 项目运行
+
+```shell
 yarn install
+
+yarn run serve # 或  yarn run dev 
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## todo
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+- [ ] 可传入表格头名称
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ ] 根据传入的表格头，有条件的显示数据

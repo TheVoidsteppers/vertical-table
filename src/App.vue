@@ -4,13 +4,9 @@
 
     <div class="table-container">
       <vertical-table :data="tableData">
-        <template v-slot:header="scope">
+        <!-- <template v-slot:header="scope">
           {{ scope.row.taskName }}
-        </template>
-
-        <!-- <table-column v-slot:header="slotProps">
-          {{ slotProps }}
-        </table-column> -->
+        </template> -->
       </vertical-table>
 
       <!-- 
@@ -20,26 +16,18 @@
           }}</template>
         </el-table-column>
        -->
-
-      <!-- <test>
-        <template v-slot:todo="{ todo }">
-          {{ todo.name }}
-        </template>
-      </test> -->
     </div>
   </div>
 </template>
 
 <script>
 import VerticalTable from "@/components/VerticalTable.vue";
-import Test from "@/components/Test.vue";
 import { tableData } from "@/assets/js/table-data.js";
 
 export default {
   name: "app",
   components: {
-    VerticalTable,
-    Test
+    VerticalTable
   },
   data() {
     return {
@@ -67,6 +55,8 @@ export default {
   }
 
   .table-container {
+    box-sizing: border-box;
+    width: 100%;
     background-color: #fff;
     padding: 20px 24px;
   }
