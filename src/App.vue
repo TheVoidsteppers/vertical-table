@@ -3,10 +3,25 @@
     <div class="app-title">竖直表格 demo</div>
 
     <div class="table-container">
-      <vertical-table :data="tableData">
-        <!-- <template v-slot:header="scope">
+      <vertical-table
+        :data="tableData"
+        :sort="['taskName', 'taskType', 'originalDataName', 'createTime']"
+      >
+        <template v-slot:taskName="scope">
           {{ scope.row.taskName }}
-        </template> -->
+        </template>
+
+        <template v-slot:taskType="scope">
+          {{ scope.row.taskType }}
+        </template>
+
+        <template v-slot:originalDataName="scope">
+          {{ scope.row.originalDataName }}
+        </template>
+
+        <template v-slot:createTime="scope">
+          {{ scope.row.createTime | formdateTime }}
+        </template>
       </vertical-table>
 
       <!-- 
@@ -22,10 +37,15 @@
 
 <script>
 import VerticalTable from "@/components/VerticalTable.vue";
+
 import { tableData } from "@/assets/js/table-data.js";
+import { formdateTime } from "@/utils";
 
 export default {
   name: "app",
+  filters: {
+    formdateTime
+  },
   components: {
     VerticalTable
   },

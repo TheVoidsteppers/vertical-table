@@ -7,13 +7,18 @@
           :key="rowIndex"
           class="table__row"
         >
-          <!-- <td>
-            <slot name="header" v-bind:row="colItem">
-              {{ colItem }}
-            </slot>
-          </td> -->
-
+          <!-- 根据键值生成 td -->
           <td
+            v-for="(colItem, colIndex) in data"
+            :key="colIndex"
+            class="table_column"
+          >
+            <div class="cell">
+              <slot :name="rowItem" :row="colItem"> </slot>
+            </div>
+          </td>
+
+          <!-- <td
             v-for="(colItem, colIndex) in data"
             :key="colIndex"
             class="table_column"
@@ -21,7 +26,7 @@
             <div class="cell">
               {{ colItem[rowItem] }}
             </div>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
@@ -37,6 +42,13 @@ export default {
       default() {
         return [{}];
       }
+    },
+    sort: {
+      type: Array,
+      require: false,
+      default() {
+        return [];
+      }
     }
   },
   data() {
@@ -44,6 +56,7 @@ export default {
   },
   computed: {
     rowKeyList() {
+      if (this.sort.length !== 0) return this.sort;
       return Object.keys(this.data[0]);
     }
   },
